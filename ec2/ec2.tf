@@ -1,7 +1,7 @@
 resource "aws_instance" "demo" {
   ami           = "ami-00ca32bbc84273381"
   instance_type = "t2.micro"
-  key_name      = "jenkins_server"
+  key_name      = "ansible"
 
   vpc_security_group_ids = [aws_security_group.demo_sg.id]
 
