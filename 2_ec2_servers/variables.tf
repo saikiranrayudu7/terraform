@@ -26,6 +26,6 @@ variable "sg_type" {
 variable "instances" {
   default = {
     "ansible" = "t2.micro"
-    "mongodb" = "t2.micro"
+    "node1" = "t2.micro"
   }
 }
