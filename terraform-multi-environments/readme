@@ -1,0 +1,4 @@
+terraform init -var-file=dev/dev.tfvars -reconfigure
+terraform plan -var-file=dev/dev.tfvars
+terraform apply -var-file=dev/dev.tfvars -auto-approve
+terraform destroy -var-file=dev/dev.tfvars -auto-approve

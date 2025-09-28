@@ -18,9 +18,13 @@ resource "aws_instance" "installing_2_servers" {
             sed -i 's/^PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config
             echo "ChallengeResponseAuthentication yes" >> /etc/ssh/sshd_config
             echo "UsePAM yes" >> /etc/ssh/sshd_config
+
+            # Set password for ec2-user
+            echo "ec2-user:hello" | chpasswd
+
+            # Restart sshd to apply changes
             systemctl restart sshd
             EOF
-
 
   tags = {
     Name = each.key
