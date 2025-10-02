@@ -1,6 +1,7 @@
 resource "aws_instance" "workspace" {
   ami                    = var.ami_id
-  instance_type          = lookup(var.instance_type, terraform.workspace)
+  for_each = var.instance_type 
+  instance_type          = lookup(var.instance_type, terraform.workspace, each.value)
   key_name               = "ansible"
   vpc_security_group_ids = ["sg-0c56a08ac6a78f8f2"]
 
@@ -11,6 +12,6 @@ resource "aws_instance" "workspace" {
   }
 
   tags = {
-    Name = "workspace-instance-${terraform.workspace}"
+    Name = "workspace-instance-${each.key}"
   }
 }
