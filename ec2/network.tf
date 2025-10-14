@@ -1,7 +1,7 @@
 resource "aws_security_group" "demo_sg" {
   name        = "demo-sg"
   description = "Allow SSH and HTTP"
-  vpc_id      = "vpc-0d66a15d8acd7933f"
+  vpc_id      = "vpc-0f597666a919ada36"
 
   ingress {
     description = "Allow SSH"
