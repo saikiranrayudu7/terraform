@@ -1,7 +1,8 @@
 resource "aws_instance" "demo" {
-  ami           = "ami-0360c520857e3138f" #ubuntu
-  instance_type = "t2.micro"
-  key_name      = "ansible"
+  ami = "ami-0341d95f75f311023" #ec-2
+  #ami           = "ami-0360c520857e3138f" #ubuntu
+  instance_type          = "t2.micro"
+  key_name               = "ansible"
   vpc_security_group_ids = var.sg_type
 
   root_block_device {
